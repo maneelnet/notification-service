@@ -1,0 +1,32 @@
+server:
+  port: 8090
+
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: myGroup
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+kafka.topic: user-notifications
+
+logging:
+  level:
+    org.springframework.web: ERROR
+    tasktrackerservice: WARN
+  file.name: ERROR
+
+bot:
+  name: TaskTracker001Bot
+  token: 6272979404:AAEX1kilnwwidUe53_xGwF51_HZbqThVMOc
+
+user-profile-integration:
+  url: "localhost:8085/"
+  pathByTelegramId: "api/user-profile/find-by-telegram-id/"
+  pathById: "api/user-profile/"
+
+task-tracker-service-integration:
+  url: "localhost:8081/"
+  pathByUserId: "api/bug/getByUserId/"
